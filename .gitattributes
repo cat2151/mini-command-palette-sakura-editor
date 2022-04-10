@@ -1,1 +1,2 @@
 *.bat diff=sjis
+*.js diff=sjis
