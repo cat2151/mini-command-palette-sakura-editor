@@ -36,7 +36,7 @@ function main() {
   var macroDir   = getMacroDir();
   var totalName  = macroDir + "work\\list.js";
   var resultName = macroDir + "work\\result.js";
-  var migemoDict = macroDir + "dict\\migemo-dict"; // なお日本語を含むディレクトリ名だとエラーなく「期待値と違う動作」になる。シンボリックリンクディレクトリの場合は実体側が日本語ディレクトリ名だとそうなる。なお秀丸やMeryでは日本語ディレクトリ名でも問題なかった。予想、おそらく秀丸やサクラエディタはcmd経由ではなく直接実行しているから。
+  var migemoDict = macroDir + "miniIncrementalSearchFilter\\dict\\migemo-dict"; // なお日本語を含むディレクトリ名だとエラーなく「期待値と違う動作」になる。シンボリックリンクディレクトリの場合は実体側が日本語ディレクトリ名だとそうなる。なお秀丸やMeryでは日本語ディレクトリ名でも問題なかった。予想、おそらく秀丸やサクラエディタはcmd経由ではなく直接実行しているから。
   var reloadName = macroDir + "createList.js";
   var fso        = getFileSystem();
 
