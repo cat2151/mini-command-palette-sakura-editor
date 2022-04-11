@@ -7,7 +7,7 @@ function install_miniCommandPalette() {
 }
 
 function install_miniIncrementalSearchFilter() {
-    pushd miniCommandPaletteSakuraEditor
+    pushd miniCommandPalette
     curl.exe -L https://github.com/cat2151/mini-incremental-search-filter/releases/download/v1.0.0/miniIncrementalSearchFilter.zip --output miniIncrementalSearchFilter.zip
     Expand-Archive -Path miniIncrementalSearchFilter.zip -DestinationPath . -Force
     del miniIncrementalSearchFilter.zip
@@ -15,7 +15,7 @@ function install_miniIncrementalSearchFilter() {
 }
 
 function install_migemo() {
-    pushd miniCommandPaletteSakuraEditor\miniIncrementalSearchFilter
+    pushd miniCommandPalette\miniIncrementalSearchFilter
     curl.exe -L https://raw.githubusercontent.com/cat2151/migemo-auto-install-for-windows/main/install_cmigemo.bat --output install_cmigemo.bat
     cmd /c install_cmigemo.bat
     popd
