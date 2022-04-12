@@ -1,14 +1,14 @@
 @powershell -NoProfile -ExecutionPolicy Unrestricted "$s=[scriptblock]::create((gc \"%~f0\"|?{$_.readcount -gt 1})-join\"`n\");&$s" %*&goto:eof
 
 function install_miniCommandPalette() {
-    curl.exe -L https://github.com/cat2151/mini-command-palette-sakura-editor/releases/download/v1.0.0/miniCommandPalette.zip --output miniCommandPalette.zip
+    curl.exe -L https://github.com/cat2151/mini-command-palette-sakura-editor/releases/download/v1.1.0/miniCommandPalette.zip --output miniCommandPalette.zip
     Expand-Archive -Path miniCommandPalette.zip -DestinationPath . -Force
     del miniCommandPalette.zip
 }
 
 function install_miniIncrementalSearchFilter() {
     pushd miniCommandPalette
-    curl.exe -L https://github.com/cat2151/mini-incremental-search-filter/releases/download/v1.0.0/miniIncrementalSearchFilter.zip --output miniIncrementalSearchFilter.zip
+    curl.exe -L https://github.com/cat2151/mini-incremental-search-filter/releases/download/v1.1.0/miniIncrementalSearchFilter.zip --output miniIncrementalSearchFilter.zip
     Expand-Archive -Path miniIncrementalSearchFilter.zip -DestinationPath . -Force
     del miniIncrementalSearchFilter.zip
     popd
