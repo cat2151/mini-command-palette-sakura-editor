@@ -8,7 +8,7 @@ function install_miniCommandPalette() {
 
 function install_miniIncrementalSearchFilter() {
     pushd miniCommandPalette
-    curl.exe -L https://github.com/cat2151/mini-incremental-search-filter/releases/download/v1.1.0/miniIncrementalSearchFilter.zip --output miniIncrementalSearchFilter.zip
+    curl.exe -L https://github.com/cat2151/mini-incremental-search-filter/releases/download/v1.0.0/miniIncrementalSearchFilter.zip --output miniIncrementalSearchFilter.zip
     Expand-Archive -Path miniIncrementalSearchFilter.zip -DestinationPath . -Force
     del miniIncrementalSearchFilter.zip
     popd
