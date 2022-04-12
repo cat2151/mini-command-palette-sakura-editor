@@ -7,6 +7,13 @@ function getEncode() {
   exit();
 }
 
+function getEncode_for_ADODB() {
+  if (GetCharCode() == 0/*SJIS */) return "shift_jis";
+  if (GetCharCode() == 4/*UTF-8*/) return "utf-8";
+  MessageBox("ERROR : encode [" + GetCharCode() + "]");
+  exit();
+}
+
 function getMacroDir() { // 上位層のコードをコードの左側だけパッと見ても読めること、という基準でwrapした。以降も同様。
   return Editor.ExpandParameter('$M').replace(/^(.+?)[^\\\/]+$/g,'$1');
 }
@@ -42,10 +49,21 @@ function jump(resultName, fso) {
       なぜ？
         「macro実行開始した編集中ファイル」以外のファイルを、macro対象にできないので。
       どう対処した？
-        FileSystemObjectのOpenTextFileしてReadAllした
+        ActiveXObject("ADODB.Stream") を使った
+    FileSystemObjectのOpenTextFileしてReadAllは、編集中ファイルがUTF-8のとき文字化けする
+      なぜ？
+        OpenTextFile がUTF-8に対応していないため読み込んだデータが文字化けする
+      どう対処した？
+        ActiveXObject("ADODB.Stream") を使った
   */
   // read
-  var searchString = fso.OpenTextFile(resultName, 1).ReadAll();
+  var adodbobj = new ActiveXObject("ADODB.Stream");
+  adodbobj.Type = 2/*file type : text*/;
+  adodbobj.charset = getEncode_for_ADODB();
+  adodbobj.Open();
+  adodbobj.LoadFromFile(resultName);
+  var searchString = adodbobj.ReadText(-1/*ファイル全体をread*/);
+  adodbobj.Close();
   // jump
   MoveCursor(1, 1, 0);
   SearchNext(searchString);
