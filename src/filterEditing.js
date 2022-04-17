@@ -33,7 +33,7 @@ function deleteFile(filename, fso) {
 
 function filterEditing(macroDir, nowEditName, resultName, migemoDict, encode) {
   var exeName = macroDir + "miniIncrementalSearchFilter\\miniIncrementalSearchFilter.exe";
-  var cmd = exeName + " " + nowEditName + " " + resultName + " --encode " + encode + " --andsearch --migemo " + migemoDict
+  var cmd = exeName + " " + nowEditName + " " + resultName + " --encode " + encode + " --andsearch --migemo " + migemoDict;
   execCmd(cmd);
 }
 
