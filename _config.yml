@@ -1,0 +1,8 @@
+title: "mini-command-palette-sakura-editor"
+description: "mini-command-palette-sakura-editor"
+theme: jekyll-theme-slate
+github:
+  is_project_page: true
+  repository_url: https://github.com/cat2151/mini-command-palette-sakura-editor
+plugins:
+  - jekyll-sitemap
